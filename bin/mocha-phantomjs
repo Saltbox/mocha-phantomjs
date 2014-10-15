@@ -105,8 +105,7 @@ var config = JSON.stringify({
   settings: settings,
   viewportSize: program.view,
   useColors: program.color,
-  file: program.file,
-  sslProtocol: "any"
+  file: program.file
 });
 
 if (reporter) {
@@ -128,7 +127,7 @@ if (program.path) {
   phantomPath = require('phantomjs').path || '/usr/local/bin/phantomjs';
 }
 
-var phantomjs = spawn(phantomPath, [script, page, reporter, config]);
+var phantomjs = spawn(phantomPath, ['--ssl-protocol=any', script, page, reporter, config]);
 phantomjs.stdout.pipe(process.stdout);
 phantomjs.stderr.pipe(process.stderr);
 phantomjs.on('exit', function(code){

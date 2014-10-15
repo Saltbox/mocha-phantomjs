@@ -105,7 +105,8 @@ var config = JSON.stringify({
   settings: settings,
   viewportSize: program.view,
   useColors: program.color,
-  file: program.file
+  file: program.file,
+  sslProtocol: "any"
 });
 
 if (reporter) {
